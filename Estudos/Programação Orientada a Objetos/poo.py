@@ -34,4 +34,5 @@ vars = mostra os valores do objeto
 str = mostra o objeto em formato de texto
 """
 
-
+"""classe é uma estrutura que encapsula dados e comportamentos relacionados. 
+Além disso, os métodos em uma classe podem ser classificados em vários tipos com base em sua natureza e propósito."""
