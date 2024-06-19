@@ -1,0 +1,73 @@
+class Pessoa:
+    def __init__(self, nome, idade):
+        self._nome = nome
+        self._idade = idade
+
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self, valor):
+        if not valor:
+            raise ValueError("Nome não pode ser vazio")
+        self._nome = valor
+
+    @property
+    def idade(self):
+        return self._idade
+
+    @idade.setter
+    def idade(self, valor):
+        if valor < 0:
+            raise ValueError("Idade não pode ser negativa")
+        self._idade = valor
+
+# Exemplo de uso
+p = Pessoa("João", 30)
+print(p.nome)  # Saída: João
+p.idade = 31   # Atribuição válida
+print(p.idade)  # Saída: 31
+
+# p.idade = -1  # Levantará um ValueError: Idade não pode ser negativa
+
+# ---------------------------------------------------------------------------
+
+class Retangulo:
+    def __init__(self, largura, altura):
+        self._largura = largura
+        self._altura = altura
+
+    @property
+    def largura(self):
+        return self._largura
+
+    @largura.setter
+    def largura(self, valor):
+        if valor <= 0:
+            raise ValueError("A largura deve ser maior que zero")
+        self._largura = valor
+
+    @property
+    def altura(self):
+        return self._altura
+
+    @altura.setter
+    def altura(self, valor):
+        if valor <= 0:
+            raise ValueError("A altura deve ser maior que zero")
+        self._altura = valor
+
+    @property
+    def area(self):
+        return self._largura * self._altura
+
+# Criando uma instância da classe Retangulo
+retangulo = Retangulo(5, 3)
+print(retangulo.area)  # Saída: 15
+
+retangulo.largura = 10
+print(retangulo.area)  # Saída: 30
+
+# retangulo.altura = -1  # Levantará um ValueError: A altura deve ser maior que zero
+
