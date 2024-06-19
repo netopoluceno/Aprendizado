@@ -1,8 +1,11 @@
 #Aprendendo orientacao a objetos
 
 """
-Objeto = instancia dentro da classe (quando criamos algo naquela classe)
+instancia = variavel chamando uma classe, ou seja: criar um item naquela classe.
+ex.: variável = classe(objetos)
+
 Acessar algum valor: objeto.atributo
+ex.: pessoa.nome ou pessoa._nome
 """
 
 class Restaurante:
@@ -27,7 +30,7 @@ restaurante_pizza = Restaurante('Pizza Express', 'Italiana')
 Restaurante.listar_restaurantes()
 
 """
-Alguns metodos:
+Alguns metodos especiais (padrão de fábrica kkkk):
 dir = mostra os metodos na classe
 init = obriga passar parametros (construtor)
 vars = mostra os valores do objeto
@@ -35,7 +38,7 @@ str = mostra o objeto em formato de texto
 """
 
 """classe é uma estrutura que encapsula dados e comportamentos relacionados. 
-Além disso, os métodos em uma classe podem ser classificados em vários tipos com base em sua natureza e propósito."""
+além disso, os métodos em uma classe podem ser classificados em vários tipos com base em sua natureza e propósito."""
 
 # ----------------------------
 
@@ -87,11 +90,30 @@ print(pessoa2.saudacao)
 print(pessoa3.saudacao)
 
 
-"""@property
-modificar como um atributo é lido
-
-self._atributo --- ._ = atributo protegido
-
-@classmethod
-indicar que aquela função é da classe
 """
+._ = atributo protegido
+
+-----
+
+@classmethod: indicar que aquela função é da classe]
+Um método de classe recebe a própria classe como o primeiro argumento, em vez de uma instância da classe.
+"""
+
+#Exemplo de classmethod:
+class Pessoa:
+    contador = 0  # Atributo da classe
+
+    def __init__(self, nome):
+        self.nome = nome
+        Pessoa.contador += 1
+
+    @classmethod
+    def contar_pessoas(cls):
+        return f"Existem {cls.contador} pessoas."
+
+# Criando instâncias da classe Pessoa
+pessoa1 = Pessoa("Alice")
+pessoa2 = Pessoa("Bob")
+
+# Chamando o método de classe
+print(Pessoa.contar_pessoas())  # Saída: Existem 2 pessoas.
